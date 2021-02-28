@@ -1,4 +1,5 @@
 
+int buzzer = 4;
 int greenPin = 5;
 int bluePin = 6;
 int redPin = 7;
@@ -15,6 +16,7 @@ void setup()
 	pinMode(greenPin, OUTPUT);		// setting green pin of RGB to output
 	pinMode(bluePin, OUTPUT);		// setting blue pin of RGB to output
 	pinMode(redPin, OUTPUT);		// setting red pin of RGB to output
+	pinMode(buzzer, OUTPUT);	// setting buzzer to output
 	Serial.begin(4800);				// giving the baud rate for serial port
 
 }
@@ -44,17 +46,21 @@ void loop()
     analogWrite(greenPin, 0);
     analogWrite(bluePin, 0);
     
-    
+    digitalWrite(buzzer, HIGH);		// if social distance is not maintained buzzer is ON
   } else if(distance > 180 && distance <= 300){	 		// if social distance is maintained
   Serial.println("Safe: Social distance maintained!");  
  	// if social distance is maintained green color is set to RGB LED
   	analogWrite(redPin, 0);
     analogWrite(greenPin, 255);
     analogWrite(bluePin, 0);
+  
+    digitalWrite(buzzer, LOW); 			// if social distance is maintained buzzer is OFF
   } else {												// if no one is around us
   Serial.println("Safe");
     // 	if person is out of range no color is et to RGB LED
     analogWrite(redPin, 0);
     analogWrite(greenPin, 0);
     analogWrite(bluePin, 0);
+	
+	digitalWrite(buzzer, LOW);  // 	if person is out of range buzzer is OFF
 }
