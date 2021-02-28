@@ -1,4 +1,4 @@
-# social-distancing-indicator
+<h1 align="center">Social Distancing Indicator</h1>
 
 ## Inspiration
 
@@ -27,3 +27,7 @@ I have learned about ultrasonic sensor and how to use sensor with Arduino UNO.
 ## What's next for Social Distancing Indicator
 
 In Future hardware implementation of this project can be carried out and other components can be added to this system.
+
+## Circuit Design
+
+<img align="center" src="Social Distancing Indicator.png">
